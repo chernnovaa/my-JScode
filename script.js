@@ -111,7 +111,7 @@ console.log(Math.pow(2, 10)); //1024
 
 // let summ = alert(a + b);
 
-//ARRAY METHODS
+//---------------------------------------------------------------------ARRAY METHODS
 
 //.pop(), .push(items), .shift(), .unshift(items)
 let fruits = ['apple', 'orange', 'pear'];
@@ -179,3 +179,239 @@ console.log(arr); //1, 2, 15
 let arr3 = [1, 2, 3, 4, 5];
 arr.reverse();
 console.log(arr3); //5, 4, 3, 2, 1
+
+//.split(delim)
+let member = 'David, Kate, Maria';
+let str = member.split(', ');
+for (let name of str) {
+  console.log(`A messege to ${name}`); //A messege to Maria
+}
+
+//.join(glue)
+let glue = names.join('; ');
+console.log(glue); //David; Kate; Serhio
+
+//.reduce()
+let result = arr.reduce((sum, current) => sum + current, 0);
+console.log(result); //18
+
+//12. Convert the text from border-left-width to borderLeftWidth. Write a camelize(str) function that converts the following strings "my-short-string" to "myShortString". That is, hyphens are removed, and all words after them begin with a capital letter.
+
+let camelize = function (str) {
+  return str
+    .split('-')
+    .map(
+      (word, index) =>
+        index == 0 ? word : word[0].toUpperCase() + word.slice(1) //index == 0 (умова) ? (якщо) word :
+    )
+    .join('');
+};
+
+console.log(camelize('background-color'));
+console.log(camelize('list-style-image'));
+console.log(camelize('-webkit-transition'));
+
+//13. Sort in descending order
+let sort = [5, 2, 1, -10, 8];
+console.log(sort.sort().reverse());
+//sort.sort((a, b) => b - a);
+//console.log(sort);
+
+//14. Copy and organize an array. We have an array of strings arr. You need to get a sorted copy and leave arr unchanged. Create a copySorted(arr) function that will return such a copy.
+let lang = ['HTML', 'JavaScript', 'CSS'];
+function copySorted(arr) {
+  //return arr.sort((a, b) => a.localeCompare(b)).join(' ');
+  return arr.slice().sort();
+}
+console.log(copySorted(lang));
+console.log(lang);
+
+//15. Transform to an array of names. You have an array of user objects, and each of them has a user.name. Write a code that converts them to an array of names.
+let ivan = { name: 'Іван', surname: 'Іванко', id: 1 };
+let petro = { name: 'Петро', surname: 'Петренко', id: 2 };
+let mariya = { name: 'Марія', surname: 'Мрійко', id: 3 };
+
+let members = [ivan, petro, mariya];
+
+let membersName = members.map(mem => mem.name);
+console.log(membersName);
+
+//16. Transform to objects. You have an array of user objects, and each of them has a name, a surname, and an id. Write code that creates another array of objects with the parameters id and fullName, where fullName consists of name and surname.
+// let ivan = { name: 'Іван', surname: 'Іванко', id: 1 };
+// let petro = { name: 'Петро', surname: 'Петренко', id: 2 };
+// let mariya = { name: 'Марія', surname: 'Мрійко', id: 3 };
+
+// let members = [ivan, petro, mariya];
+
+let usersMapped = members.map(mem => ({
+  fullName: `${mem.name} ${mem.surname}`,
+  id: mem.id,
+}));
+console.log(usersMapped);
+
+///////////////////////////////////////
+// let range = {
+//   from: 1,
+//   to: 5,
+// };
+
+// range[Symbol.iterator] = function () {
+//   return {
+//     current: this.from,
+//     last: this.to,
+
+//     next() {
+//       if (this.current <= this.last) {
+//         return { done: false, value: this.current++ };
+//       } else {
+//         return { done: true };
+//       }
+//     },
+//   };
+// };
+
+// for (let num of range) {
+//   console.log(num); //1, 2, 3, 4, 5
+// }
+
+let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.iterator]() {
+    this.current = this.from;
+    return this;
+  },
+
+  next() {
+    if (this.current <= this.to) {
+      return { done: false, value: this.current++ };
+    } else {
+      return { done: true };
+    }
+  },
+};
+
+for (let num of range) {
+  console.log(num); //1, 2, 3, 4, 5
+}
+
+for (let char of 'test') {
+  console.log(char);
+}
+
+//Array.from
+
+let r = Array.from(range);
+console.log(r); //1, 2, 3, 4, 5
+
+let square = Array.from(range, num => num * num);
+console.log(square);
+
+/////////////////////////////
+//map------------------------
+let map = new Map();
+map.set('1', 'str1'); // рядок як ключ
+map.set(1, 'num1'); // цифра як ключ
+map.set(true, 'bool1'); // булеве значення як ключ
+console.log(map.get(1)); //num1
+console.log(map.get('1')); //str1
+console.log(map.size); //3
+
+let recipeMap = new Map([
+  ['cucumber', 500],
+  ['tomato', 350],
+  ['potato', 50],
+]);
+
+for (let vegetable of recipeMap.keys()) {
+  console.log(vegetable); //cucumber tomato potato
+}
+
+for (let amount of recipeMap.values()) {
+  console.log(amount); //500 350 50
+}
+
+for (let entry of recipeMap) {
+  console.log(entry); //(2) ['cucumber', 500] ...
+}
+
+recipeMap.forEach((value, key, _) => {
+  console.log(`${key} costs: ${value}`);
+});
+
+let obj = {
+  name: 'David',
+  age: 80,
+};
+
+let one = new Map(Object.entries(obj));
+console.log(one.get('name')); //David
+
+let prices = Object.fromEntries([
+  ['banana', 11],
+  ['orange', 25],
+  ['apple', 2],
+]);
+console.log(prices.apple); //2
+
+let prices2 = new Map();
+prices2.set('banana', 11);
+prices2.set('orange', 25);
+prices2.set('apple', 2);
+
+let pr = Object.fromEntries(prices2);
+console.log(pr.banana); //11
+
+//set---------------------------------
+let set = new Set();
+let guest1 = { name: 'Serhio' };
+let guest2 = { name: 'Misha' };
+let guest3 = { name: 'Kolya' };
+
+set.add(guest1);
+set.add(guest1);
+set.add(guest2);
+set.add(guest2);
+set.add(guest2);
+set.add(guest3);
+
+console.log(set.size); //3
+
+for (let user of set) {
+  console.log(user.name);
+}
+
+//task
+let values = [
+  'Hare',
+  'Krishna',
+  'Hare',
+  'Krishna',
+  'Krishna',
+  'Krishna',
+  'Hare',
+  'Hare',
+  ':-O',
+];
+
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+console.log(unique(values)); //(3) ['Hare', 'Krishna', ':-O']
+
+//task
+let anagrams = ['nap', 'teachers', 'cheaters', 'PAN', 'ear', 'era', 'hectares'];
+
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of anagrams) {
+    let sorted = word.toLowerCase().split('').sort().join('');
+    map.set(sorted, word);
+  }
+
+  return Array.from(map.values());
+}
+
+console.log(aclean(arr));
