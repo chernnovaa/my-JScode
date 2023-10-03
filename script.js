@@ -415,3 +415,54 @@ function aclean(arr) {
 }
 
 console.log(aclean(arr));
+
+//task
+let salary = {
+  Іван: 100,
+  Петро: 300,
+  Марія: 250,
+};
+
+function sumSalaries(salary) {
+  let sum = 0;
+  for (let s of Object.values(salary)) {
+    sum += s;
+  }
+  return sum;
+}
+
+console.log(sumSalaries(salary)); //650
+
+//task
+let boba = {
+  name: 'Boba',
+  age: 30,
+};
+
+function count(obj) {
+  return Object.keys(obj).length;
+}
+
+console.log(count(boba)); //2
+
+//udemy
+//CHALLENGE #1
+//Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / (height * height) (mass in kg and height in meters).
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+const markHigherBMI = BMIMark > BMIJohn;
+console.log(markHigherBMI);
+
+//CHALLENGE #2
+if (BMIMark > BMIJohn) {
+  console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
+} else {
+  console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
+}
