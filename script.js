@@ -466,3 +466,262 @@ if (BMIMark > BMIJohn) {
 } else {
   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
 }
+
+//CHALLENGE #3
+//There are two gymnastics teams: Dolphins and Koalas. They compete against each other 3 times. The winner with the highest average score wins a trophy!
+
+const scoreDolphins = (98 + 108 + 89) / 3;
+const scoreKoalas = (88 + 91 + 110) / 3;
+
+if (scoreDolphins > scoreKoalas) {
+  console.log('Dolphins win the trophy');
+} else if (scoreKoalas > scoreDolphins) {
+  console.log('Koalas win the trophy');
+} else if (scoreDolphins === scoreKoalas) {
+  console.log('Both win the trophy');
+}
+
+//CHALLENGE #4
+//Steven needs a very simple tip calculator for whenever he goes to eat in a restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
+
+const bill = 275;
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);
+//////////////////////////////////////
+
+//functions
+const cutPieces = function (fruit) {
+  return fruit * 4;
+};
+
+const fruitProcessor = function (apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+  //console.log(apples, oranges);
+  const juice = `Juice with ${applePieces} piece of apples and ${orangePieces} piece of oranges.`;
+  return juice;
+};
+console.log(fruitProcessor(2, 4));
+//fruitProcessor(3, 5);
+/////////////////////////////////////
+
+const calcAge = function (birthYear) {
+  return 2023 - birthYear;
+};
+// const age = calcAge(2004);
+// console.log(`${age} years old`);
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired`);
+    return -1;
+  }
+};
+console.log(yearsUntilRetirement(2003, 'David'));
+console.log(yearsUntilRetirement(1950, 'Oleh'));
+/////////////////////////////////////
+
+//CHALLENGE #5
+//Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently. Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team). A team only wins if it has at least double the average score of the other team. Otherwise, no team wins!
+
+const calcAverage = (a, b, c) => a + b + c / 3;
+let scoreDolphins2 = calcAverage(44, 23, 71);
+let scoreKoalas2 = calcAverage(65, 54, 49);
+console.log(scoreDolphins2, scoreKoalas2);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win (${avgDolphins}) vs (${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Koalas win (${avgKoalas}) vs (${avgDolphins})`);
+  } else {
+    console.log('No team wins...');
+  }
+};
+checkWinner(scoreDolphins2, scoreKoalas2);
+
+//CHALLENGE #6
+//Steven wants you to improve his tip calculator, using the same rules as before — tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(bills, tips, totals);
+
+//object
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Shmit',
+  birthYear: 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Stiven'],
+  hasDriversLicense: true,
+
+  calcAge: function () {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-years old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+  },
+};
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.getSummary());
+
+//CHALLENGE #7
+//Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / (height * height) (mass in kg and height in meters).
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+console.log(mark.calcBMI());
+console.log(john.calcBMI());
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`
+  );
+} else {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`
+  );
+}
+
+//loop
+for (let rep = 1; rep <= 5; rep++) {
+  console.log(`Lifting weights repetition ${rep}`);
+}
+
+for (let i = 0; i < values.length; i++) {
+  console.log(values[i]);
+}
+
+const years = [1991, 2007, 1969, 2015];
+const ages = [];
+for (let i = 0; i < years.length; i++) {
+  ages.push(2023 - years[i]);
+}
+console.log(ages);
+
+const michael = [
+  'Michael',
+  'Patison',
+  2023 - 1991,
+  'teacher',
+  ['Jonas', 'Peter', 'Steven'],
+];
+
+// for (let i = 0; i < michael.length; i++) {
+//   console.log(michael[i]);
+// }
+
+for (let i = michael.length - 1; i >= 0; i--) {
+  console.log(michael[i]);
+}
+
+let rep = 1;
+while (rep <= 10) {
+  console.log(`Lifting weights repetition ${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+//console.log(dice);
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log('Loop is about to end');
+}
+
+//CHALLENGE #8
+//Let's improve Steven's tip calculator even more, this time using loops!
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
+}
+console.log(bills, tips, totals);
+
+const calcAverage2 = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+console.log(calcAverage2([2, 3, 7]));
+console.log(calcAverage2(totals));
+
+//section 5
+// PROBLEM 1:
+// We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+// 1) Understanding the problem
+// - What is temp amplitude? Answer: difference between highest and lowest temp
+// - How to compute max and min temperatures?
+// - What's a sensor error? And what do do?
+
+// 2) Breaking up into sub-problems
+// - How to ignore errors?
+// - Find max value in temp array
+// - Find min value in temp array
+// - Subtract min from max (amplitude) and return it
+
+const calcTempAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min;
+};
+//calcTempAmplitude([2, 6, 4, 8]);
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
