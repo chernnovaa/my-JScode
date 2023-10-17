@@ -5,11 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My JSCode</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>My JavaScript Code</h1>
+  <div class="navigation">
+    <input class="navigation__checkbox" type="checkbox" id="navi-toggle">
+    <label class="navigation__button" for="navi-toggle">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+    <nav class="navigation__nav">
+      <ul class="navigation__list">
+        <li class="navigation__list-item">
+          <a class="navigation__list-link" href="#">GUESS</a>
+        </li>
+        <li class="navigation__list-item">
+          <a class="navigation__list-link" href="#">MODAL</a>
+        </li>
+        <li class="navigation__list-item">
+          <a class="navigation__list-link" href="#">PIG</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <header class="header">
+    <div class="header-box">
+      <h1 class="header-box_title">My <span>J</span>ava<span>S</span>cript Code</h1>
+    </div>
+  </header>
 
   <script src="script.js"></script>
 </body>
