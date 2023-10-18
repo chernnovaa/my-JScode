@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My JSCode</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,6 +36,29 @@
       <h1 class="header-box_title">My <span>J</span>ava<span>S</span>cript Code</h1>
     </div>
   </header>
+  <main class="main">
+    <section class="guess">
+      <div class="guess__top">
+        <h2 class="guess__title">Guess My Number!</h2>
+        <p class="guess__between">(Between 1 and 20)</p>
+        <button class="btn guess__again">Again!</button>
+        <div class="guess__number">?</div>
+      </div>
+      <div class="guess__side">
+        <div class="guess__left">
+          <input type="number" class="guess__left-input" />
+          <button class="btn check">Check!</button>
+        </div>
+        <div class="guess__right">
+          <p class="guess__right-message">Start guessing...</p>
+          <p class="guess__right-score">Score: <span class="score">20</span></p>
+          <p class="guess__right-highscore">
+            Highscore: <span class="highscore">0</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>

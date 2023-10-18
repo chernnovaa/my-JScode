@@ -1,0 +1,104 @@
+.guess {
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: #014871;
+  color: #d7ede2;
+
+  &__title {
+    font-size: 4rem;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__number {
+    background: #d7ede2;
+    color: #014871;
+    font-size: 6rem;
+    width: 15rem;
+    padding: 3rem 0rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &__between {
+    font-size: 1.4rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__again {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+  &__top {
+    position: relative;
+    height: 35vh;
+    border-bottom: 7px solid #d7ede2;
+  }
+
+  &__side {
+    height: 65vh;
+    color: #d7ede2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__left {
+    width: 52rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-input {
+      background: none;
+      border: 4px solid #d7ede2;
+      font-family: inherit;
+      color: inherit;
+      font-size: 5rem;
+      padding: 2.5rem;
+      width: 25rem;
+      text-align: center;
+      display: block;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__right {
+    width: 52rem;
+    font-size: 2rem;
+
+    &-message {
+      margin-bottom: 8rem;
+      height: 3rem;
+    }
+
+    &-score {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  background-color: #d7ede2;
+  color: #014871;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #f7f8f8;
+  }
+}

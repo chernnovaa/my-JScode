@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "my-jscode",
   "version": "1.0.0",
-  "description": "My portfolio website",
+  "description": "My my-jscode",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
