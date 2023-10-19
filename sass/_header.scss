@@ -20,6 +20,10 @@
       color: #f7f8f8;
       animation: MoveInTop 1.3s ease-out;
 
+      @media only screen and (max-width: 600px) {
+        font-size: 44px;
+      }
+
       & span {
         color: #000;
       }

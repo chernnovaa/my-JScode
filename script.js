@@ -133,8 +133,8 @@ console.log(test.slice(1, 3)); //e, s
 console.log(test.slice(-2)); //s, t
 
 //.concat()
-let number = [1, 2];
-console.log(number.concat([3, 4], [5, 6], 7, 8));
+let number1 = [1, 2];
+console.log(number1.concat([3, 4], [5, 6], 7, 8));
 
 //.forEach()
 let names = ['David', 'Kate', 'Serhio'];
@@ -765,3 +765,99 @@ const printForecast = function (arr) {
   console.log('...' + str);
 };
 printForecast(data1);
+
+//GAME GUESS-------------------------------------------------------------------------------------------
+//defined secret number
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let score = 10;
+let highscore = 0;
+const displayMessage = function (message) {
+  document.querySelector('.guess__right-message').textContent = message;
+};
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess__left-input').value);
+  console.log(guess);
+
+  //when there is no input
+  if (!guess) {
+    //document.querySelector('.guess__right-message').textContent = 'No number !';
+    displayMessage('No number!');
+
+    //when player wins
+  } else if (guess === secretNumber) {
+    // document.querySelector('.guess__right-message').textContent =
+    //   'Correct number!';
+    displayMessage('Correct number!!!');
+
+    //display secret number
+    document.querySelector('.guess__number').textContent = secretNumber;
+
+    //styles
+    document.querySelector('.guess').style.backgroundColor = '#067d68';
+    document.querySelector('.guess__number').style.borderRadius = '50%';
+
+    //implementing highscores
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+
+    //when guess is wrong
+  } else if (guess !== secretNumber) {
+    if (score > 1) {
+      // document.querySelector('.guess__right-message').textContent =
+      //   guess > secretNumber ? 'Too high!' : 'Too low!';
+      displayMessage(guess > secretNumber ? 'Too high!' : 'Too low!');
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      // document.querySelector('.guess__right-message').textContent =
+      //   'Lost the game!';
+      displayMessage('Lost the game!');
+      document.querySelector('.score').textContent = 0;
+      document.querySelector('.guess').style.backgroundColor = '#e65c4f';
+    }
+  }
+
+  //   //when guess is too high
+  // } else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.guess__right-message').textContent = 'Too high!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.guess__right-message').textContent =
+  //       'Lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //     document.querySelector('.guess').style.backgroundColor = '#e65c4f';
+  //   }
+
+  //   //when guess is too low
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.guess__right-message').textContent = 'Too low!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.guess__right-message').textContent =
+  //       'Lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //     document.querySelector('.guess').style.backgroundColor = '#e65c4f';
+  //   }
+  // }
+});
+
+//button again
+document.querySelector('.guess__again').addEventListener('click', function () {
+  score = 10;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  // document.querySelector('.guess__right-message').textContent =
+  //   'Start guessing...';
+  displayMessage('Start guessing...');
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.guess').style.backgroundColor = '#014871';
+  document.querySelector('.guess__number').style.borderRadius = '0';
+  document.querySelector('.guess__number').textContent = '?';
+  document.querySelector('.guess__left-input').value = '';
+});
