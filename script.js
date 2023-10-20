@@ -861,3 +861,33 @@ document.querySelector('.guess__again').addEventListener('click', function () {
   document.querySelector('.guess__number').textContent = '?';
   document.querySelector('.guess__left-input').value = '';
 });
+
+// MODAL WINDOW ----------------------------------------------------------------------------------------
+const modal = document.querySelector('.modal__hidden');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.modal__close');
+const btnsOpenModal = document.querySelectorAll('.modal__show');
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+  btnsOpenModal[i].addEventListener('click', openModal);
+}
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  // console.log(e.key);
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
