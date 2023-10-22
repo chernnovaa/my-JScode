@@ -1,40 +1,38 @@
-.modal {
-  position: relative;
+.windows {
   background: rgb(203, 184, 157);
   background: linear-gradient(
     180deg,
     rgba(203, 184, 157, 1) 0%,
-    rgba(128, 112, 68, 1) 90%
+    rgba(128, 96, 68, 1) 60%,
+    rgba(65, 47, 38, 1) 95%
   );
   font-family: 'Lato', sans-serif;
   height: 100vh;
-  color: #333;
+  color: #412f26;
   padding-top: 3rem;
+  position: relative;
+}
 
+.navigation {
   &__title {
-    text-align: center;
     text-transform: uppercase;
     font-size: 3rem;
+    text-align: center;
     letter-spacing: 2.5rem;
-    color: #412f26;
+    transition: all 0.8s;
 
-    @media only screen and (max-width: 600px) {
-      font-size: 2.5rem;
+    &:hover {
+      letter-spacing: 4rem;
     }
   }
 
   &__buttons {
     display: flex;
-    align-items: flex-start;
     justify-content: center;
-
-    @media only screen and (max-width: 900px) {
-      flex-direction: column;
-      align-items: center;
-    }
+    align-items: center;
   }
 
-  &__show {
+  &__btn {
     min-width: 18rem;
     font-size: 2rem;
     font-weight: 600;
@@ -44,13 +42,32 @@
     border: none;
     background-color: #ede1d2;
     color: #412f26;
-    border-radius: 10rem;
+    border-radius: 1rem;
     cursor: pointer;
+  }
+}
 
-    @media only screen and (max-width: 600px) {
-      min-width: 16rem;
-      font-size: 1.6rem;
-    }
+.modal {
+  position: relative;
+  background-color: #ede1d2;
+  font-family: 'Lato', sans-serif;
+
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: 1.8rem;
   }
 
   &__close {
@@ -58,34 +75,10 @@
     top: 1.2rem;
     right: 2rem;
     font-size: 5rem;
-    color: #333;
+    color: #412f26;
     cursor: pointer;
     border: none;
     background: none;
-  }
-
-  &__hidden {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-
-    background-color: #ede1d2;
-    color: #412f26;
-    padding: 6rem;
-    border-radius: 5px;
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-
-    &-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    &-text {
-      font-size: 1.8rem;
-    }
   }
 }
 

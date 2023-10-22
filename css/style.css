@@ -157,73 +157,68 @@ html {
       .header-box_title span {
         color: #333; }
 
-.modal {
-  position: relative;
+.windows {
   background: #cbb89d;
-  background: linear-gradient(180deg, #cbb89d 0%, #807044 90%);
+  background: linear-gradient(180deg, #cbb89d 0%, #806044 60%, #412f26 95%);
   font-family: 'Lato', sans-serif;
   height: 100vh;
-  color: #333;
-  padding-top: 3rem; }
+  color: #412f26;
+  padding-top: 3rem;
+  position: relative; }
+
+.navigation__title {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 2.5rem;
+  transition: all 0.8s; }
+  .navigation__title:hover {
+    letter-spacing: 4rem; }
+
+.navigation__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.navigation__btn {
+  min-width: 18rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  padding: 1.75rem 3.5rem;
+  margin: 5rem 2rem;
+  border: none;
+  background-color: #ede1d2;
+  color: #412f26;
+  border-radius: 1rem;
+  cursor: pointer; }
+
+.modal {
+  position: relative;
+  background-color: #ede1d2;
+  font-family: 'Lato', sans-serif;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10; }
   .modal__title {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 3rem;
-    letter-spacing: 2.5rem;
-    color: #412f26; }
-    @media only screen and (max-width: 600px) {
-      .modal__title {
-        font-size: 2.5rem; } }
-  .modal__buttons {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center; }
-    @media only screen and (max-width: 900px) {
-      .modal__buttons {
-        flex-direction: column;
-        align-items: center; } }
-  .modal__show {
-    min-width: 18rem;
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    padding: 1.75rem 3.5rem;
-    margin: 5rem 2rem;
-    border: none;
-    background-color: #ede1d2;
-    color: #412f26;
-    border-radius: 10rem;
-    cursor: pointer; }
-    @media only screen and (max-width: 600px) {
-      .modal__show {
-        min-width: 16rem;
-        font-size: 1.6rem; } }
+    font-size: 2.5rem;
+    margin-bottom: 2rem; }
+  .modal__text {
+    font-size: 1.8rem; }
   .modal__close {
     position: absolute;
     top: 1.2rem;
     right: 2rem;
     font-size: 5rem;
-    color: #333;
+    color: #412f26;
     cursor: pointer;
     border: none;
     background: none; }
-  .modal__hidden {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    background-color: #ede1d2;
-    color: #412f26;
-    padding: 6rem;
-    border-radius: 5px;
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10; }
-    .modal__hidden-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem; }
-    .modal__hidden-text {
-      font-size: 1.8rem; }
 
 .hidden {
   display: none; }

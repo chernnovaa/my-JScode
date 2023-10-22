@@ -863,9 +863,10 @@ document.querySelector('.guess__again').addEventListener('click', function () {
 });
 
 // MODAL WINDOW ----------------------------------------------------------------------------------------
-const modal = document.querySelector('.modal__hidden');
+/*
+const modal = document.querySelector('.modal__hidden'); //це шукає тільки перший елемент на сторінці
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.modal__close');
+const btnCloseModal = document.querySelector('.modal__close'); //це шукає тільки перший елемент на сторінці
 const btnsOpenModal = document.querySelectorAll('.modal__show');
 
 const openModal = function () {
@@ -877,6 +878,9 @@ const closeModal = function () {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
+
+//це можна мінімізувати одною строчкою
+//modal.classList.toggle('hidden', тут умова)
 
 for (let i = 0; i < btnsOpenModal.length; i++) {
   btnsOpenModal[i].addEventListener('click', openModal);
@@ -891,3 +895,34 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+*/
+
+const navigationButtons = document.getElementsByClassName('navigation__btn');
+const modal = document.getElementsByClassName('modal');
+const modalCloseButton = document.getElementsByClassName('modal__close');
+const modalTitle = document.getElementsByClassName('modal__title');
+const modalText = document.getElementsByClassName('modal__text');
+const overlay = document.querySelector('.overlay');
+
+function closeModal() {
+  modal[0].classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+
+function onModalShow(e) {
+  modal[0].classList.remove('hidden');
+
+  const currentButton = e.currentTarget;
+
+  modalTitle[0].textContent = currentButton.textContent;
+  modalText[0].textContent = currentButton.getAttribute('data-text');
+
+  overlay.classList.remove('hidden');
+}
+
+modalCloseButton[0].addEventListener('click', closeModal);
+
+for (let i = 0; i < navigationButtons.length; i++) {
+  navigationButtons[i].addEventListener('click', onModalShow);
+}
