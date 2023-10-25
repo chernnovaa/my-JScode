@@ -172,6 +172,9 @@ html {
   text-align: center;
   letter-spacing: 2.5rem;
   transition: all 0.8s; }
+  @media only screen and (max-width: 700px) {
+    .navigation__title {
+      margin-bottom: 4rem; } }
   .navigation__title:hover {
     letter-spacing: 4rem; }
     @media only screen and (max-width: 700px) {
@@ -198,6 +201,9 @@ html {
   color: #412f26;
   border-radius: 1rem;
   cursor: pointer; }
+  @media only screen and (max-width: 700px) {
+    .navigation__btn {
+      margin: 3rem 2rem; } }
 
 .modal {
   position: relative;
@@ -213,13 +219,21 @@ html {
   z-index: 10; }
   @media only screen and (max-width: 700px) {
     .modal {
-      top: -30%;
-      padding: 4rem; } }
+      top: -20%;
+      padding: 3rem;
+      width: 80%; } }
   .modal__title {
     font-size: 2.5rem;
     margin-bottom: 2rem; }
+    @media only screen and (max-width: 700px) {
+      .modal__title {
+        font-size: 2rem;
+        margin-bottom: 1rem; } }
   .modal__text {
     font-size: 1.8rem; }
+    @media only screen and (max-width: 700px) {
+      .modal__text {
+        font-size: 1.4rem; } }
   .modal__close {
     position: absolute;
     top: 1.2rem;
@@ -229,6 +243,10 @@ html {
     cursor: pointer;
     border: none;
     background: none; }
+    @media only screen and (max-width: 700px) {
+      .modal__close {
+        font-size: 3rem;
+        top: 2.2rem; } }
 
 .hidden {
   display: none; }
@@ -396,9 +414,10 @@ html {
     @media only screen and (max-width: 700px) {
       .pig__box {
         width: 80%; } }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 450px) {
       .pig__box {
-        width: auto; } }
+        width: 35rem;
+        height: 50rem; } }
   .pig__player {
     flex: 50%;
     padding: 9rem;
@@ -420,11 +439,17 @@ html {
       @media only screen and (max-width: 700px) {
         .pig__player-name {
           font-size: 2.8rem; } }
+      @media only screen and (max-width: 450px) {
+        .pig__player-name {
+          font-size: 2rem; } }
     .pig__player-score {
       font-size: 8rem;
       font-weight: 300;
       color: #f45c43;
       margin-bottom: auto; }
+      @media only screen and (max-width: 450px) {
+        .pig__player-score {
+          font-size: 4.5rem; } }
 
 .player--active {
   background-color: rgba(255, 255, 255, 0.4); }
@@ -447,9 +472,10 @@ html {
   padding: 2rem;
   text-align: center;
   transition: all 0.75s; }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 450px) {
     .current {
-      width: 90%; } }
+      width: 90%;
+      padding: 1rem; } }
   .current__label {
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -458,8 +484,14 @@ html {
     @media only screen and (max-width: 700px) {
       .current__label {
         font-size: 1.5rem; } }
+    @media only screen and (max-width: 450px) {
+      .current__label {
+        margin-bottom: 0; } }
   .current__score {
     font-size: 3.5rem; }
+    @media only screen and (max-width: 450px) {
+      .current__score {
+        font-size: 2rem; } }
 
 .pig__btn {
   position: absolute;
@@ -480,6 +512,10 @@ html {
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1); }
+  @media only screen and (max-width: 450px) {
+    .pig__btn {
+      padding: 0.5rem 2rem;
+      font-size: 1.5rem; } }
   .pig__btn:active {
     transform: translate(-50%, 3px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
@@ -494,15 +530,15 @@ html {
 
 .btn--roll {
   top: 39.3rem; }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 450px) {
     .btn--roll {
-      top: 30.3rem; } }
+      top: 27.3rem; } }
 
 .btn--hold {
   top: 46.1rem; }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 450px) {
     .btn--hold {
-      top: 36.1rem; } }
+      top: 32.1rem; } }
 
 .dice {
   position: absolute;
@@ -511,6 +547,9 @@ html {
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (max-width: 450px) {
+    .dice {
+      height: 8rem; } }
 
 .player--winner {
   background-color: #2f2f2f; }

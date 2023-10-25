@@ -21,6 +21,10 @@
     letter-spacing: 2.5rem;
     transition: all 0.8s;
 
+    @media only screen and (max-width: 700px) {
+      margin-bottom: 4rem;
+    }
+
     &:hover {
       letter-spacing: 4rem;
 
@@ -52,6 +56,10 @@
     color: #412f26;
     border-radius: 1rem;
     cursor: pointer;
+
+    @media only screen and (max-width: 700px) {
+      margin: 3rem 2rem;
+    }
   }
 }
 
@@ -70,17 +78,27 @@
   z-index: 10;
 
   @media only screen and (max-width: 700px) {
-    top: -30%;
-    padding: 4rem;
+    top: -20%;
+    padding: 3rem;
+    width: 80%;
   }
 
   &__title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__text {
     font-size: 1.8rem;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1.4rem;
+    }
   }
 
   &__close {
@@ -92,6 +110,11 @@
     cursor: pointer;
     border: none;
     background: none;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 3rem;
+      top: 2.2rem;
+    }
   }
 }
 

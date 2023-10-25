@@ -28,8 +28,9 @@
       width: 80%;
     }
 
-    @media only screen and (max-width: 500px) {
-      width: auto;
+    @media only screen and (max-width: 450px) {
+      width: 35rem;
+      height: 50rem;
     }
   }
 
@@ -57,6 +58,10 @@
       @media only screen and (max-width: 700px) {
         font-size: 2.8rem;
       }
+
+      @media only screen and (max-width: 450px) {
+        font-size: 2rem;
+      }
     }
 
     &-score {
@@ -64,6 +69,10 @@
       font-weight: 300;
       color: #f45c43;
       margin-bottom: auto;
+
+      @media only screen and (max-width: 450px) {
+        font-size: 4.5rem;
+      }
     }
   }
 }
@@ -92,8 +101,9 @@
   text-align: center;
   transition: all 0.75s;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 450px) {
     width: 90%;
+    padding: 1rem;
   }
 
   &__label {
@@ -105,10 +115,18 @@
     @media only screen and (max-width: 700px) {
       font-size: 1.5rem;
     }
+
+    @media only screen and (max-width: 450px) {
+      margin-bottom: 0;
+    }
   }
 
   &__score {
     font-size: 3.5rem;
+
+    @media only screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -134,6 +152,11 @@
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 
+  @media only screen and (max-width: 450px) {
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
+  }
+
   &:active {
     transform: translate(-50%, 3px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -154,15 +177,15 @@
 .btn--roll {
   top: 39.3rem;
 
-  @media only screen and (max-width: 500px) {
-    top: 30.3rem;
+  @media only screen and (max-width: 450px) {
+    top: 27.3rem;
   }
 }
 .btn--hold {
   top: 46.1rem;
 
-  @media only screen and (max-width: 500px) {
-    top: 36.1rem;
+  @media only screen and (max-width: 450px) {
+    top: 32.1rem;
   }
 }
 
@@ -173,6 +196,10 @@
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+
+  @media only screen and (max-width: 450px) {
+    height: 8rem;
+  }
 }
 
 .player--winner {
