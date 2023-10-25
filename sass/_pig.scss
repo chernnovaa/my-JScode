@@ -23,6 +23,14 @@
     border-radius: 9px;
     overflow: hidden;
     display: flex;
+
+    @media only screen and (max-width: 700px) {
+      width: 80%;
+    }
+
+    @media only screen and (max-width: 500px) {
+      width: auto;
+    }
   }
 
   &__player {
@@ -33,6 +41,10 @@
     align-items: center;
     transition: all 0.75s;
 
+    @media only screen and (max-width: 700px) {
+      padding: 6rem 3rem;
+    }
+
     &-name {
       position: relative;
       font-size: 4rem;
@@ -41,6 +53,10 @@
       word-spacing: 2px;
       font-weight: 300;
       margin-bottom: 1rem;
+
+      @media only screen and (max-width: 700px) {
+        font-size: 2.8rem;
+      }
     }
 
     &-score {
@@ -76,11 +92,19 @@
   text-align: center;
   transition: all 0.75s;
 
+  @media only screen and (max-width: 500px) {
+    width: 90%;
+  }
+
   &__label {
     text-transform: uppercase;
     margin-bottom: 1rem;
     font-size: 1.7rem;
     color: #ddd;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1.5rem;
+    }
   }
 
   &__score {
@@ -122,12 +146,24 @@
 
 .btn--new {
   top: 4rem;
+
+  @media only screen and (max-width: 700px) {
+    top: 2rem;
+  }
 }
 .btn--roll {
   top: 39.3rem;
+
+  @media only screen and (max-width: 500px) {
+    top: 30.3rem;
+  }
 }
 .btn--hold {
   top: 46.1rem;
+
+  @media only screen and (max-width: 500px) {
+    top: 36.1rem;
+  }
 }
 
 .dice {

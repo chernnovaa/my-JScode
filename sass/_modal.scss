@@ -23,6 +23,10 @@
 
     &:hover {
       letter-spacing: 4rem;
+
+      @media only screen and (max-width: 700px) {
+        letter-spacing: 2.5rem;
+      }
     }
   }
 
@@ -30,6 +34,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 700px) {
+      flex-direction: column;
+    }
   }
 
   &__btn {
@@ -60,6 +68,11 @@
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+
+  @media only screen and (max-width: 700px) {
+    top: -30%;
+    padding: 4rem;
+  }
 
   &__title {
     font-size: 2.5rem;

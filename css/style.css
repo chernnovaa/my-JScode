@@ -174,11 +174,17 @@ html {
   transition: all 0.8s; }
   .navigation__title:hover {
     letter-spacing: 4rem; }
+    @media only screen and (max-width: 700px) {
+      .navigation__title:hover {
+        letter-spacing: 2.5rem; } }
 
 .navigation__buttons {
   display: flex;
   justify-content: center;
   align-items: center; }
+  @media only screen and (max-width: 700px) {
+    .navigation__buttons {
+      flex-direction: column; } }
 
 .navigation__btn {
   min-width: 18rem;
@@ -205,6 +211,10 @@ html {
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10; }
+  @media only screen and (max-width: 700px) {
+    .modal {
+      top: -30%;
+      padding: 4rem; } }
   .modal__title {
     font-size: 2.5rem;
     margin-bottom: 2rem; }
@@ -365,7 +375,6 @@ html {
 
 .pig {
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -384,6 +393,12 @@ html {
     border-radius: 9px;
     overflow: hidden;
     display: flex; }
+    @media only screen and (max-width: 700px) {
+      .pig__box {
+        width: 80%; } }
+    @media only screen and (max-width: 500px) {
+      .pig__box {
+        width: auto; } }
   .pig__player {
     flex: 50%;
     padding: 9rem;
@@ -391,6 +406,9 @@ html {
     flex-direction: column;
     align-items: center;
     transition: all 0.75s; }
+    @media only screen and (max-width: 700px) {
+      .pig__player {
+        padding: 6rem 3rem; } }
     .pig__player-name {
       position: relative;
       font-size: 4rem;
@@ -399,6 +417,9 @@ html {
       word-spacing: 2px;
       font-weight: 300;
       margin-bottom: 1rem; }
+      @media only screen and (max-width: 700px) {
+        .pig__player-name {
+          font-size: 2.8rem; } }
     .pig__player-score {
       font-size: 8rem;
       font-weight: 300;
@@ -426,11 +447,17 @@ html {
   padding: 2rem;
   text-align: center;
   transition: all 0.75s; }
+  @media only screen and (max-width: 500px) {
+    .current {
+      width: 90%; } }
   .current__label {
     text-transform: uppercase;
     margin-bottom: 1rem;
     font-size: 1.7rem;
     color: #ddd; }
+    @media only screen and (max-width: 700px) {
+      .current__label {
+        font-size: 1.5rem; } }
   .current__score {
     font-size: 3.5rem; }
 
@@ -461,12 +488,21 @@ html {
 
 .btn--new {
   top: 4rem; }
+  @media only screen and (max-width: 700px) {
+    .btn--new {
+      top: 2rem; } }
 
 .btn--roll {
   top: 39.3rem; }
+  @media only screen and (max-width: 500px) {
+    .btn--roll {
+      top: 30.3rem; } }
 
 .btn--hold {
   top: 46.1rem; }
+  @media only screen and (max-width: 500px) {
+    .btn--hold {
+      top: 36.1rem; } }
 
 .dice {
   position: absolute;
