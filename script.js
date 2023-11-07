@@ -1024,3 +1024,477 @@ btnHold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
+
+const arrr = [2, 3, 4];
+// const a = arrr[0];
+// const b = arrr[1];
+// const c = arrr[2];
+const [x, y, z] = arrr;
+console.log(x, y, z);
+const [a, , b] = arrr;
+console.log(a, b);
+
+let c = 11;
+let t = 99;
+console.log(c, t);
+const o = { c: 12, t: 100 };
+({ c, t } = o);
+console.log(c, t);
+
+// const orderPasta = function (ing1, ing2, ing3) {
+//   console.log(`Your pasta with ${ing1}, ${ing2} and ${ing3}`);
+// };
+// const ingredients = [
+//   prompt('Create a pasta, ingredient 1 ?'),
+//   prompt('ingredient 2 ?'),
+//   prompt('Ingredient 3 ?'),
+// ];
+// orderPasta(...ingredients);
+
+const v = [4, 5, 6];
+const vv = [1, 2, 3, ...v];
+console.log(vv);
+
+const addNumbers = function (...numbers) {
+  console.log(numbers);
+
+  let sum = 0; //accumulating
+  for (let i = 0; i < numbers.length; i++) sum = sum + numbers[i];
+  console.log(sum);
+};
+
+const p = [23, 44, 6];
+
+addNumbers(...p);
+addNumbers(2, 2);
+addNumbers(5, 8, 3, 4, 6);
+
+const rest1 = {
+  name: 'La Pizza',
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'Pepko',
+  owner: 'Pepko Dola',
+};
+
+rest1.numGuest ??= 10;
+rest2.numGuest ||= 10;
+rest2.owner &&= 'ANONYMOUS';
+console.log(rest1, rest2);
+
+///////////////////////////////////////
+// Coding Challenge #10
+
+/* 
+We're building a football betting app!
+
+Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
+
+1. Create one player array for each team (variables 'players1' and 'players2')
+2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+3. Create an array 'allPlayers' containing all players of both teams (22 players)
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
+
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+//2
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+//3
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//4
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+//5
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//6
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+//7
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
+
+const menu = ['Pasta', 'Salat', 'Cake', 'Soup', 'Pizza'];
+
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+///////////////////////////////////////
+// Coding Challenge #11
+
+/* 
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+*/
+
+//1
+for (const [goal, plName] of game.scored.entries()) {
+  console.log(`Goal ${goal + 1}: ${plName}`);
+}
+
+//2
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+//3
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// const question = new Map([
+//   ['guestion', 'What is the best fruit ?'],
+//   [1, 'apple'],
+//   [2, 'banana'],
+//   [3, 'strawberry'],
+//   ['correct', 2],
+//   [true, 'Correct !'],
+//   [false, 'Try again'],
+// ]);
+
+// console.log(question.get('guestion'));
+
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+
+// const answer = Number(prompt('Your answer'));
+// console.log(answer);
+
+// console.log(question.get(question.get('correct') === answer));
+
+///////////////////////////////////////
+// Coding Challenge #12
+
+/* 
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+*/
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+//1
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+//2
+gameEvents.delete(64);
+
+//3
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+
+//4
+for (const [min, e] of gameEvents) {
+  const half = min < 45 ? 'First' : 'Second';
+  console.log(`[${half} half] ${min}: ${e}`);
+}
+
+const air = 'TAP Air Portugal';
+console.log(air.slice(1, 16));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log(`You got the middle seat: ${seat}`);
+  } else {
+    console.log(`Your seat: ${seat} is not in the middle`);
+  }
+};
+checkMiddleSeat('12B');
+checkMiddleSeat('1E');
+checkMiddleSeat('23H');
+
+const passenger = function (name) {
+  const toLower = name.toLowerCase();
+  const correct = toLower[0].toUpperCase() + toLower.slice(1);
+  return correct;
+};
+console.log(passenger('daViD')); //David
+console.log('a+very+nice+string'.split(' '));
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const nameUpper = [];
+
+  for (const n of names) {
+    nameUpper.push(n[0].toUpperCase() + n.slice(1));
+    //nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(' '));
+};
+capitalizeName('kate chernova');
+
+const maskCreditCard = function (card) {
+  const str = card + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(6353751236));
+console.log(maskCreditCard('7216128'));
+
+///////////////////////////////////////
+// Coding Challenge #13
+
+const camelCase = function () {
+  const names = [
+    'underscore_case',
+    '  first_name',
+    'Some_Variable',
+    '  calculate_AGE',
+    'delayed_departure',
+  ];
+  for (const name of names) {
+    const [first, second] = name.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(output.padEnd(20), '!');
+  }
+};
+camelCase('underscore_case');
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '!' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(46);
+  console.log(output);
+}
+const ss = ['a', 'b', 'c'];
+console.log(ss.at(0));
+
+const movements = [200, -300, 400, 1700, -20, 80, -60];
+
+movements.forEach(function (mov, i) {
+  if (mov < 0) {
+    console.log(`You withdrew ${i + 1}: ${Math.abs(mov)}`);
+  } else {
+    console.log(`You deposited ${i + 1}: ${mov}`);
+  }
+});
+
+///////////////////////////////////////
+// Coding Challenge #14
+
+/* 
+Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners about their dog's age, and stored the data into an array (one array for each). For now, they are just interested in knowing whether a dog is an adult or a puppy. A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years old.
+
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages ('dogsJulia' and 'dogsKate'), and does the following things:
+
+1. Julia found out that the owners of the FIRST and the LAST TWO dogs actually have cats, not dogs! So create a shallow copy of Julia's array, and remove the cat ages from that copied array (because it's a bad practice to mutate function parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog number 1 is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy 🐶")
+4. Run the function for both test datasets
+
+HINT: Use tools from all lectures in this section so far 😉
+
+TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+*/
+const checkDogs = function (dogsJulia, dogsKate) {
+  //1
+  const dogsJuliaCorrected = dogsJulia.slice();
+  dogsJuliaCorrected.splice(0, 1);
+  dogsJuliaCorrected.splice(-2);
+  //2
+  const correctDogs = dogsJuliaCorrected.concat(dogsKate);
+  //3
+  correctDogs.forEach(function (year, i) {
+    if (year >= 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${year} years old`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy`);
+    }
+  });
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------- BANKIST ---------------------------------------
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4];
+
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `          <div class="movements__row">
+            <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+            <div class="movements__value">${mov}</div>
+          </div>`;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
