@@ -759,3 +759,55 @@ html {
 
 .hidden {
   display: none; }
+
+.todo {
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  color: #333;
+  background: #f9e17b;
+  background: radial-gradient(circle, #f9e17b 0%, #3d7eaa 100%);
+  padding: 1rem; }
+  .todo__container {
+    background-color: rgba(255, 255, 255, 0.4);
+    max-width: 38rem;
+    margin: 8.5rem auto 1.5rem;
+    padding: 2.5rem 3rem;
+    border-radius: 2rem; }
+  .todo__title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    box-shadow: 0 1.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .todo__box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 2rem;
+    margin-bottom: 2rem; }
+  .todo__input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem; }
+  .todo__btn {
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    border: none;
+    background-color: #3d7eaa;
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 1.5rem; }
+  .todo__list {
+    list-style-type: none; }
+  .todo__item {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    letter-spacing: 0.1rem; }
+    .todo__item-checked {
+      color: #555;
+      text-decoration: line-through; }

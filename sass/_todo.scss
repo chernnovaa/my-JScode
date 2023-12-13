@@ -1,0 +1,72 @@
+.todo {
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  color: #333;
+  background: rgb(249, 225, 123);
+  background: radial-gradient(
+    circle,
+    rgba(249, 225, 123, 1) 0%,
+    rgba(61, 126, 170, 1) 100%
+  );
+  padding: 1rem;
+
+  &__container {
+    background-color: rgba(255, 255, 255, 0.4);
+    max-width: 38rem;
+    margin: 8.5rem auto 1.5rem;
+    padding: 2.5rem 3rem;
+    border-radius: 2rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    box-shadow: 0 1.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__btn {
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    border: none;
+    background-color: #3d7eaa;
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+
+    &-checked {
+      color: #555;
+      text-decoration: line-through;
+    }
+  }
+}

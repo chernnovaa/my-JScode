@@ -1848,3 +1848,28 @@ console.log(dogs.filter(chechEatingOkay));
 //8
 const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsSorted);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------- TODO ---------------------------------------
+// Elements
+// const inputWindow = document.querySelector('.todo__input');
+// const btnAdd = document.querySelector('.todo__btn');
+const listContainer = document.querySelector('.todo__list');
+
+// inputWindow.addEventListener('click', function (e) {
+//   e.value;
+//   console.log(e);
+// });
+document.querySelector('.todo__btn').addEventListener('click', function () {
+  const inputWindow = document.querySelector('.todo__input').value;
+  console.log(inputWindow);
+
+  if (!inputWindow) {
+    alert('no value !');
+  } else {
+    let listElement = document.createElement('li');
+    listElement.classList.add('todo__item');
+    listElement.innerHTML = inputWindow;
+    listContainer.appendChild(listElement);
+  }
+});
