@@ -1856,20 +1856,26 @@ console.log(dogsSorted);
 // const btnAdd = document.querySelector('.todo__btn');
 const listContainer = document.querySelector('.todo__list');
 
-// inputWindow.addEventListener('click', function (e) {
-//   e.value;
-//   console.log(e);
-// });
 document.querySelector('.todo__btn').addEventListener('click', function () {
-  const inputWindow = document.querySelector('.todo__input').value;
+  const inputWindow = document.querySelector('.todo__input');
   console.log(inputWindow);
 
+  //when the input window empty
   if (!inputWindow) {
     alert('no value !');
   } else {
+    //creating li element (task)
     let listElement = document.createElement('li');
     listElement.classList.add('todo__item');
-    listElement.innerHTML = inputWindow;
+    listElement.innerHTML = inputWindow.value;
     listContainer.appendChild(listElement);
+
+    //add an event when clicking on the completed task
+    listElement.addEventListener('click', function () {
+      this.classList.add('todo__item-checked');
+    });
   }
+  //clear input field
+  inputWindow.value = '';
+  inputWindow.blur();
 });
