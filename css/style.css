@@ -764,8 +764,8 @@ html {
   font-family: 'Lato', sans-serif;
   height: 100vh;
   color: #333;
-  background: #f9e17b;
-  background: radial-gradient(circle, #f9e17b 0%, #3d7eaa 100%);
+  background: #e55d87;
+  background: radial-gradient(circle, #e55d87 0%, #5fc4e4 100%);
   padding: 1rem; }
   .todo__container {
     background-color: rgba(255, 255, 255, 0.4);
@@ -796,18 +796,36 @@ html {
     font-family: 'Lato', sans-serif;
     outline: none;
     border: none;
-    background-color: #3d7eaa;
+    background-color: #5fc3e4;
     padding: 1rem 2.5rem;
     border-radius: 2rem;
-    color: #fff;
-    font-size: 1.5rem; }
+    color: #555;
+    font-size: 1.5rem;
+    transition: all 0.3s; }
+    .todo__btn:hover {
+      background-color: #e55d87;
+      color: #fff; }
   .todo__list {
     list-style-type: none; }
   .todo__item {
     font-size: 1.5rem;
     padding: 1rem 2rem;
     cursor: pointer;
-    letter-spacing: 0.1rem; }
+    letter-spacing: 0.1rem;
+    position: relative; }
     .todo__item-checked {
       color: #555;
       text-decoration: line-through; }
+  .todo__span {
+    position: absolute;
+    top: 8px;
+    right: 21px;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    transition: all 0.3s; }
+    .todo__span:hover {
+      background-color: #e55d87;
+      color: #fff; }

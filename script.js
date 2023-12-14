@@ -1852,16 +1852,17 @@ console.log(dogsSorted);
 ////////////////////////////////////////////////////////////////////////////////////////////
 //----------------------------------------- TODO ---------------------------------------
 // Elements
-// const inputWindow = document.querySelector('.todo__input');
+const inputWindow = document.querySelector('.todo__input');
 // const btnAdd = document.querySelector('.todo__btn');
 const listContainer = document.querySelector('.todo__list');
 
-document.querySelector('.todo__btn').addEventListener('click', function () {
-  const inputWindow = document.querySelector('.todo__input');
-  console.log(inputWindow);
+document.querySelector('.todo__btn').addEventListener('click', function (e) {
+  e.preventDefault();
+  const inputTitle = inputWindow.value;
+  //console.log(inputTitle);
 
   //when the input window empty
-  if (!inputWindow) {
+  if (!inputTitle) {
     alert('no value !');
   } else {
     //creating li element (task)
@@ -1870,9 +1871,22 @@ document.querySelector('.todo__btn').addEventListener('click', function () {
     listElement.innerHTML = inputWindow.value;
     listContainer.appendChild(listElement);
 
+    //creating span element (x)
+    let spanIcon = document.createElement('span');
+    spanIcon.classList.add('todo__span');
+    spanIcon.innerHTML = '\u00D7';
+    listElement.appendChild(spanIcon);
+
     //add an event when clicking on the completed task
     listElement.addEventListener('click', function () {
       this.classList.add('todo__item-checked');
+    });
+
+    //delete task
+    spanIcon.addEventListener('click', function (e) {
+      e.preventDefault();
+      listElement.remove();
+      //console.log('ok');
     });
   }
   //clear input field

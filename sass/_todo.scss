@@ -2,11 +2,11 @@
   font-family: 'Lato', sans-serif;
   height: 100vh;
   color: #333;
-  background: rgb(249, 225, 123);
+  background: rgb(229, 93, 135);
   background: radial-gradient(
     circle,
-    rgba(249, 225, 123, 1) 0%,
-    rgba(61, 126, 170, 1) 100%
+    rgba(229, 93, 135, 1) 0%,
+    rgba(95, 196, 228, 1) 100%
   );
   padding: 1rem;
 
@@ -47,11 +47,17 @@
     font-family: 'Lato', sans-serif;
     outline: none;
     border: none;
-    background-color: #3d7eaa;
+    background-color: #5fc3e4;
     padding: 1rem 2.5rem;
     border-radius: 2rem;
-    color: #fff;
+    color: #555;
     font-size: 1.5rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #e55d87;
+      color: #fff;
+    }
   }
 
   &__list {
@@ -63,10 +69,28 @@
     padding: 1rem 2rem;
     cursor: pointer;
     letter-spacing: 0.1rem;
+    position: relative;
 
     &-checked {
       color: #555;
       text-decoration: line-through;
+    }
+  }
+
+  &__span {
+    position: absolute;
+    top: 8px;
+    right: 21px;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #e55d87;
+      color: #fff;
     }
   }
 }
